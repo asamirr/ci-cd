@@ -45,5 +45,5 @@ jobs:
     - name: Build in case development
       if: ${{ github.ref == 'refs/heads/dev' }}
       run: |
-        VERSION=GITHUB_REF
+        VERSION=$GITHUB_REF
         echo $VERSION in development
