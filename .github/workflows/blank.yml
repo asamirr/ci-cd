@@ -34,16 +34,19 @@ jobs:
       
     - name: Build in case test
       if: github.event.release.prerelease == true
-      run: echo "$GITHUB_REF" in test
-
+      run: |
+        VERSION=$GITHUB_REF
+        echo ${VERSION:10:12} in test and "$github.event_name"
     - name: Build in case main
       if: | 
         github.event_name == 'release' &&
         github.event.release.prerelease == false         
-      run: echo "$GITHUB_REF" in main and "$github.event_name"
+      run: |
+        VERSION=$GITHUB_REF
+        echo ${VERSION:10:12} in main and "$github.event_name"
 
     - name: Build in case development
       if: ${{ github.ref == 'refs/heads/dev' }}
       run: |
-        VERSION=$GITHUB_REF
-        echo $VERSION in development
+        BRANCH=$GITHUB_REF
+        echo ${BRANCH:10:12}
