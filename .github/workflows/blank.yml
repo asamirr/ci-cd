@@ -49,4 +49,4 @@ jobs:
       if: ${{ github.ref == 'refs/heads/dev' }}
       run: |
         BRANCH=$GITHUB_REF
-        echo ${BRANCH:10:12}
+        echo ${BRANCH:10:12} and it was an event of type: "$github.event_name"
