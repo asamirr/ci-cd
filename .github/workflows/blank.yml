@@ -37,10 +37,9 @@ jobs:
       run: echo "$GITHUB_REF" in test
 
     - name: Build in case main
-      if: | 
-        github.event.name == 'release' &&
+      if:       
         github.event.release.prerelease == false         
-      run: echo "$GITHUB_REF" in main
+      run: echo "$GITHUB_REF" in main and "$github.event.name"
 
     - name: Build in case development
       if: ${{ github.ref == 'refs/heads/dev' }}
