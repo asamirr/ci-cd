@@ -34,14 +34,14 @@ jobs:
       
     - name: Build in case test
       if: github.event.release.prerelease == true
-      run: VERSION=GITHUB_REF NETWORK=test yarn build:app
+      run: echo "$GITHUB_REF" in test
 
     - name: Build in case main
       if: | 
         github.event.name == 'release' &&
         github.event.release.prerelease == false         
-      run: VERSION=GITHUB_REF NETWORK=main yarn build:app
+      run: echo "$GITHUB_REF" in main
 
     - name: Build in case development
       if: ${{ github.ref == 'refs/heads/dev' }}
-      run: VERSION=GITHUB_REF NETWORK=dev yarn build:app
+      run: echo "$GITHUB_REF" in development
