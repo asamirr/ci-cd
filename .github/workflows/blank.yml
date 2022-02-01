@@ -24,13 +24,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it    
     - uses: actions/checkout@v2
       # Runs a single command using the runners shell
-    - name: Run a single release
-      if: ${{!github.event.release.prerelease}}
-      run: echo Hello, releases! and "$GITHUB_REF"
+    # - name: Run a single release
+    #   if: ${{!github.event.release.prerelease}}
+    #   run: echo Hello, releases! and "$GITHUB_REF"
 
-    - name: Run a pre-release
-      if: ${{github.event.release.prerelease}}
-      run: echo "$GITHUB_REF"
+    # - name: Run a pre-release
+    #   if: ${{github.event.release.prerelease}}
+    #   run: echo "$GITHUB_REF"
       
+    - name: Build in case test
+      if: github.event.release.prerelease == true
+      run: VERSION=GITHUB_REF NETWORK=test yarn build:app
 
+    - name: Build in case development
+      if: github.event.release.prerelease == false
+      run: VERSION=GITHUB_REF NETWORK=main yarn build:app
 
+    - name: Build in case development
+      if: ${{ github.ref == 'refs/heads/development' }}
+      run: VERSION=GITHUB_REF NETWORK=dev yarn build:app
