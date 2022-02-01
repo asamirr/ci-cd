@@ -38,7 +38,7 @@ jobs:
 
     - name: Build in case main
       if: | 
-        github.event.name == release &&
+        github.event.name == 'release' &&
         github.event.release.prerelease == false         
       run: VERSION=GITHUB_REF NETWORK=main yarn build:app
 
