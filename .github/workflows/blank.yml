@@ -26,7 +26,7 @@ jobs:
       # Runs a single command using the runners shell
     - name: Run a single release
       if: ${{!github.event.release.prerelease}}
-      run: echo Hello, releases!
+      run: echo Hello, releases! and "$GITHUB_REF"
 
     - name: Run a pre-release
       if: ${{github.event.release.prerelease}}
