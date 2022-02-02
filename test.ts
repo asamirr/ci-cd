@@ -8,18 +8,13 @@ export default function validateName(name: string): string | void {
     if (name.length > 15) return "Name must be at most 15 characters";
 }
 
-export function validateEmail
-(email: string): string 
-| void {
-  if (!EMAIL_REGEX.test(email)) 
-    return "Invalid email format";
+export function validateEmail(email: string): string | void {
+  if (!EMAIL_REGEX.test(email)) return "Invalid email format";
 }
 
 export function validateOptionalEmail(email: string): string | void {
-  if (email == "") 
-    return null;
-  if (!EMAIL_REGEX.test(email)) 
-    return "Invalid email format";
+  if (email == "") return null;
+  if (!EMAIL_REGEX.test(email)) return "Invalid email format";
 }
 
 export function isInvalid(fields: IFormField[]) {
@@ -28,12 +23,10 @@ export function isInvalid(fields: IFormField[]) {
 
 export function validateMemory(value: number): string | void {
   value = +value;
-  
-  if (isNaN(value)) 
-    return "Memory must be a valid number";
-  if (+value.toFixed(0) !== value) 
-    return "Memory must be a valid integer";
-  
+
+  if (isNaN(value)) return "Memory must be a valid number";
+  if (+value.toFixed(0) !== value) return "Memory must be a valid integer";
+
   if (value < 250) return "Minimum allowed memory is 250 MB";
   if (value > 256 * 1024) return "Maximum allowed memory is 256 GB";
 }
