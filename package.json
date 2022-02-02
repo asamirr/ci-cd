@@ -19,5 +19,8 @@
   "homepage": "https://github.com/asamirr/ci-cd#readme",
   "dependencies": {
     "prettier": "^2.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0"
   }
 }
