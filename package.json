@@ -1,0 +1,23 @@
+{
+  "name": "ci-cd",
+  "version": "1.0.0",
+  "description": "Testing push on dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asamirr/ci-cd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asamirr/ci-cd/issues"
+  },
+  "homepage": "https://github.com/asamirr/ci-cd#readme",
+  "dependencies": {
+    "prettier": "^2.5.1"
+  }
+}
