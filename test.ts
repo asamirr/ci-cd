@@ -1,4 +1,4 @@
-import type { IFormField } from "../types";
+
 
 const NAME_REGEX = /^[^0-9][a-zA-Z0-9]+$/;
 const EMAIL_REGEX =
