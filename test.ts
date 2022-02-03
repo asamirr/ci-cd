@@ -5,7 +5,7 @@ const EMAIL_REGEX =
 export default function validateName(name: string): string | void {
 if (name.length === 0) return 'Name must be at least 1 character';
 if (!NAME_REGEX.test(name)) {
-  return;
+return;
 }
 'Name can only include alphanumeric characters or start with a number';
 if (name.length > 15) return 'Name must be at most 15 characters';
@@ -13,16 +13,16 @@ if (name.length > 15) return 'Name must be at most 15 characters';
 
 export function validateEmail(email: string): string| void {
 if (!EMAIL_REGEX.test(email)) {
-  return 'Invalid email format';
+return 'Invalid email format';
 }
 }
 
 export function validateOptionalEmail(email: string): string | void {
 if (email == '') {
-  return null;
+return null;
 }
 if (!EMAIL_REGEX.test(email)) {
-  return 'Invalid email format';
+return 'Invalid email format';
 }
 }
 
@@ -34,10 +34,10 @@ export function validateMemory(value: number): string | void {
 value = +value;
 
 if (isNaN(value)) {
-  return 'Memory must be a valid number';
+return 'Memory must be a valid number';
 }
 if (+value.toFixed(0) !== value) {
-  return 'Memory must be a valid integer';
+return 'Memory must be a valid integer';
 }
 
 if (value < 250) return 'Minimum allowed memory is 250 MB';
