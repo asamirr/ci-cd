@@ -4,12 +4,14 @@ const EMAIL_REGEX =
 // prettier-ignore
 export default function validateName(name: string): string | void {
 if (name.length === 0) return 'Name must be at least 1 character';
-if (!NAME_REGEX.test(name)) return 'Name can only include alphanumeric characters or start with a number';
+if (!NAME_REGEX.test(name)) {
+  return;
+}
+'Name can only include alphanumeric characters or start with a number';
 if (name.length > 15) return 'Name must be at most 15 characters';
 }
 
-export function validateEmail(email: string): string
-| void {
+export function validateEmail(email: string): string| void {
 if (!EMAIL_REGEX.test(email)) {
   return 'Invalid email format';
 }
