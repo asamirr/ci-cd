@@ -11,7 +11,7 @@ return;
 if (name.length > 15) return 'Name must be at most 15 characters';
 }
 
-export function validateEmail(email: string): string| void {
+export function validateEmail     (email: string):   string| void {
 if (!EMAIL_REGEX.test(email)) {
 return 'Invalid email format';
 }
